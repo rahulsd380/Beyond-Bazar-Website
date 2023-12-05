@@ -7,6 +7,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 import toast, { Toaster } from "react-hot-toast";
 import Navbar from "../Navbar/Navbar";
+import { Helmet } from "react-helmet-async";
 // import { Helmet } from "react-helmet-async";
 
 const Login = () => {
@@ -53,16 +54,16 @@ const Login = () => {
         <div>
           <Navbar></Navbar>
             <div className="max-w-6xl mx-auto py-10">
-            {/* <Helmet>
-              <title>Food For Life | Login</title>
-          </Helmet> */}
+            <Helmet>
+              <title>Beyond Bazar | Login</title>
+          </Helmet>
             <div className="flex">
             <div>
                 <div className="w-72 h-full bg-gradient-to-r from-red-500 to-red-800 p-6 flex justify-center items-center rounded-l-2xl">
                     <h1 className="text-3xl font-semibold text-white">Welsome Back <br /> Rahul</h1>
                 </div>
             </div>
-            <form onSubmit={handleLogin} className="bg-gray-100 p-10 md:p-20 rounded-r-2xl">
+            <form onSubmit={handleLogin} className="bg-gray-100 p-10 md:p-20 rounded-r-2xl w-full">
                 <h1 className="text-4xl font-bold mb-2">Sign In</h1>
                 <p className="mb-7">Sign In to visit your account!!</p>
             <div className="grid grid-cols-1 gap-5">

@@ -6,6 +6,7 @@ import { FaArrowDown } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import ThemeToggle from "../Toggle/Toggle";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -23,27 +24,27 @@ const Navbar = () => {
   return (
     <div className="">
         {/* Top part */}
-      <div className="hidden md:flex md:justify-between border-b py-3 px-10">
+      <div className="hidden md:flex md:justify-between items-center border-b py-3 px-10">
         <div className="flex gap-4">
-          <Link className="text-gray-500 hover:text-rose-600 transition duration-300 text-sm">
+          <Link className="text-gray-500 hover:text-rose-600 transition duration-300 text-sm dark:text-gray-50 dark:hover:text-rose-400">
             About Us
           </Link>
-          <Link className="text-gray-500 hover:text-rose-600 transition duration-300 text-sm">
+          <Link className="text-gray-500 hover:text-rose-600 transition duration-300 text-sm dark:text-gray-50 dark:hover:text-rose-400">
             My Account
           </Link>
-          <Link className="text-gray-500 hover:text-rose-600 transition duration-300 text-sm">
+          <Link className="text-gray-500 hover:text-rose-600 transition duration-300 text-sm dark:text-gray-50 dark:hover:text-rose-400">
             Order Tracking
           </Link>
-          <Link className="text-gray-500 hover:text-rose-600 transition duration-300 text-sm">
+          <Link className="text-gray-500 hover:text-rose-600 transition duration-300 text-sm dark:text-gray-50 dark:hover:text-rose-400">
             Wishlist
           </Link>
         </div>
-        <div className="flex gap-5">
-          <p className="text-sm border-r border-r-rose-600 px-3">
-            <span className="text-gray-500">Need help? Call us:</span>{" "}
-            <span className="font-semibold">01608249337</span>{" "}
-            <span className="text-gray-500">or email:</span>{" "}
-            <span className="font-semibold">rahulsd380@gmail.com</span>
+        <div className="flex gap-5 items-center">
+          <p className="text-sm border-r border-r-rose-400 px-3">
+            <span className="text-gray-500 dark:text-gray-300">Need help? Call us:</span>{" "}
+            <span className="font-semibold dark:text-gray-50">01608249337</span>{" "}
+            <span className="text-gray-500 dark:text-gray-300">or email:</span>{" "}
+            <span className="font-semibold dark:text-gray-50">rahulsd380@gmail.com</span>
           </p>
           <div className="flex gap-4 items-center text-sm">
             <select name="" id="">
@@ -57,6 +58,7 @@ const Navbar = () => {
               <option value="tk">TK</option>
             </select>
           </div>
+          <ThemeToggle></ThemeToggle>
         </div>
       </div>
 
@@ -66,7 +68,7 @@ const Navbar = () => {
         <div className="flex items-center gap-8">
           <Drawer></Drawer>
           <img className="w-24" src="/src/assets/images/logo.png" alt="" />
-          <Link className="hidden bg-gradient-to-r from-red-500 to-red-800 text-white p-2 rounded-md md:flex justify-center items-center w-10 text-xl">
+          <Link to={"/"} className="hidden bg-gradient-to-r from-red-500 to-red-800 text-white p-2 rounded-md md:flex justify-center items-center w-10 text-xl">
             <IoHomeSharp></IoHomeSharp>
           </Link>
         </div>
@@ -85,7 +87,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-7">
           <div className="relative inline-block">
             <button
-              className="flex gap-3 items-center rounded-md hover:text-rose-600 transition duration-300"
+              className="flex gap-3 items-center rounded-md hover:text-rose-600 transition duration-300 dark:text-gray-50 dark:hover:text-rose-400"
               onClick={toggleDropdown}
             >
               <h1 className="font-semibold">My Account</h1>
@@ -137,7 +139,7 @@ const Navbar = () => {
           </div>
 
           <div>
-            <FaRegHeart className="text-3xl"></FaRegHeart>
+            <FaRegHeart className="text-3xl dark:text-gray-50 dark:hover:text-rose-400"></FaRegHeart>
             <div className="bg-rose-600 text-white h-3 w-3 rounded-full flex justify-center items-center p-2 text-xs relative bottom-9 left-5">
               <p>0</p>
             </div>
@@ -145,15 +147,15 @@ const Navbar = () => {
 
           <div className="flex items-center gap-4">
             <div>
-              <IoCartOutline className="text-4xl"></IoCartOutline>
+              <IoCartOutline className="text-4xl dark:text-gray-50 dark:hover:text-rose-400"></IoCartOutline>
               <div className="bg-rose-600 text-white h-3 w-3 rounded-full flex justify-center items-center p-2 text-xs relative bottom-10 left-6">
                 <p>0</p>
               </div>
             </div>
 
             <div className="-mt-6">
-              <p className="text-gray-500">0 Items</p>
-              <p className="font-bold">$66.00</p>
+              <p className="text-gray-500 dark:text-gray-200">0 Items</p>
+              <p className="font-bold dark:text-gray-50">$66.00</p>
             </div>
           </div>
         </div>

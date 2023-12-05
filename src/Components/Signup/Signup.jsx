@@ -6,6 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import useAxiosClient from "../../Hooks/useAxiosClient";
 import Navbar from "../Navbar/Navbar";
+import { Helmet } from "react-helmet-async";
 // import { Helmet } from "react-helmet-async";
 
 
@@ -99,16 +100,16 @@ const SignUp = () => {
         <div>
           <Navbar></Navbar>
             <div className="max-w-6xl mx-auto">
-            {/* <Helmet>
-              <title>Food For Life | Sign Up</title>
-          </Helmet> */}
+            <Helmet>
+              <title>Beyond Bazar | Sign Up</title>
+          </Helmet>
             <div className="flex py-10">
             <div>
                 <div className="w-72 h-full bg-gradient-to-r from-red-500 to-red-800 p-6 flex justify-center items-center rounded-l-2xl">
                     <h1 className="text-3xl font-semibold text-white">Welsome To <br /> Beyond Bazar!!</h1>
                 </div>
             </div>
-            <form onSubmit={handleSignUp} className="bg-slate-100 p-10 md:p-20 rounded-r-2xl">
+            <form onSubmit={handleSignUp} className="bg-slate-100 p-10 md:p-20 rounded-r-2xl w-full">
                 <h1 className="text-4xl font-bold mb-2">Sign Up</h1>
                 <p className="mb-7">Create an account to view our awesome features!!</p>
 
