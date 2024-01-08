@@ -17,6 +17,7 @@ import ManageProducts from "./Components/Dashboard/AdminDashboard/Pages/ManagePr
 import ProductDetails from "./Components/AllProducts/ProductDetails/ProductDetails";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import AllProducts from "./Components/AllProducts/AllProducts";
+import Cart from "./Components/Cart/Cart";
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
   {
@@ -48,7 +49,10 @@ const router = createBrowserRouter([
         path: "allProducts",
         element: <AllProducts></AllProducts>
       },
-      
+      {
+        path: "cart",
+        element: <Cart></Cart>
+      },
     ],
   },
 
