@@ -8,11 +8,15 @@ import { IoCartOutline } from "react-icons/io5";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 // import ThemeToggle from "../Toggle/Toggle";
 import {motion} from "framer-motion";
+import useCart from "../Hooks/useCart";
+import useWishlist from "../Hooks/useWishlist";
 // import { Dropdown2 } from "../Dropdown2/Dropdown2";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [cart] = useCart();
+  const [wishlist] = useWishlist();
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
@@ -178,7 +182,7 @@ const Navbar = () => {
           <div>
             <FaRegHeart className="text-3xl dark:text-gray-50 dark:hover:text-rose-400"></FaRegHeart>
             <div className="bg-rose-600 text-white h-3 w-3 rounded-full flex justify-center items-center p-2 text-xs relative bottom-9 left-5">
-              <p>0</p>
+            <p>{wishlist.length}</p>
             </div>
           </div>
 
@@ -186,7 +190,7 @@ const Navbar = () => {
             <Link to={"/cart"}>
               <IoCartOutline className="text-4xl dark:text-gray-50 dark:hover:text-rose-400"></IoCartOutline>
               <div className="bg-rose-600 text-white h-3 w-3 rounded-full flex justify-center items-center p-2 text-xs relative bottom-10 left-6">
-                <p>0</p>
+              <p>{cart.length}</p>
               </div>
             </Link>
 

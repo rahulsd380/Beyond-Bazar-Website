@@ -46,6 +46,7 @@ const ProductDetails = () => {
 
     const handleAddToWishlist = (item) => {
         const wishlistItem = {
+            email: user?.email,
             productId: _id,
             title: title,
             image: image,
