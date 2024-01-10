@@ -1,24 +1,44 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaDeleteLeft } from "react-icons/fa6";
 import useCart from "../Hooks/useCart";
 import { Link } from "react-router-dom";
-import { IoArrowUndoSharp, IoSearchOutline } from "react-icons/io5";
+import { IoArrowUndoSharp } from "react-icons/io5";
 import Navbar from "../Navbar/Navbar";
+import { Helmet } from "react-helmet-async";
+import Footer from "../Footer/Footer";
 
 const Cart = () => {
   const [cart] = useCart();
   console.log(cart);
 
-  const [quantity, setQuantity] = useState(1);
-  const handleIncreaseQuantity = () => {
-    setQuantity(quantity + 1);
+  const [updatedCart, setUpdatedCart] = useState([]);
+  useEffect(() => {
+    const newCart = cart.map(item => ({...item, quantity:0}))
+    setUpdatedCart(newCart)
+  }, [cart])
+
+  const handleIncreaseQuantity = (id) => {
+    const copyArray = [...updatedCart];
+    const singleItem = copyArray.find(item => item._id == id);
+    singleItem.quantity += 1;
+    setUpdatedCart(copyArray)
   };
 
-  const handleDecreaseQuantity = () => {
-    setQuantity(quantity - 1);
+  const handleDecreaseQuantity = (id) => {
+    const copyArray = [...updatedCart];
+    const singleItem = copyArray.find(item => item._id == id);
+    singleItem.quantity -= 1;
+    setUpdatedCart(copyArray)
   };
+
+
   return (
-    <div className="max-w-7xl mx-auto">
+    <div>
+      <div className="max-w-7xl mx-auto">
+      <Helmet>
+        <title>Beyond Bazar | Your Cart</title>
+        <link rel="canonical" href="https://www.tacobell.com/" />
+      </Helmet>
         <Navbar></Navbar>
       <div className="flex items-center justify-between py-7">
         <div className="flex items-center gap-5">
@@ -33,7 +53,7 @@ const Cart = () => {
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
         <div className="overflow-x-auto col-span-2">
           <table className="table">
             {/* head */}
@@ -52,7 +72,7 @@ const Cart = () => {
               </tr>
             </thead>
 
-            {cart.map((item, index) => (
+            {updatedCart.map((item, index) => (
               <tbody key={item._id}>
                 <tr>
                   <th>
@@ -80,16 +100,16 @@ const Cart = () => {
                   </td>
                   <td>
                     <div className="flex items-center gap-5">
-                      <p>{quantity}</p>
+                      <p>{item.quantity}</p>
                       <div className="flex items-center gap-3">
                         <button
-                          onClick={handleDecreaseQuantity}
+                          onClick={() => handleDecreaseQuantity(item._id)}
                           className="border border-rose-600 px-2 py-1 rounded-lg text-gray-500 hover:text-rose-600 font-semibold"
                         >
                           -
                         </button>
                         <button
-                          onClick={handleIncreaseQuantity}
+                          onClick={() => handleIncreaseQuantity(item._id)}
                           className="bg-rose-600 border border-rose-600 px-2 py-1 rounded-lg text-white font-semibold"
                         >
                           +
@@ -99,7 +119,7 @@ const Cart = () => {
                   </td>
                   <td>{item.price}</td>
                   <th>
-                    <button className="btn btn-ghost btn-xs flex items-center gap-3">
+                    <button className="btn btn-ghost flex items-center gap-3">
                       Delete{" "}
                       <FaDeleteLeft className="text-rose-600 text-xl"></FaDeleteLeft>
                     </button>
@@ -149,6 +169,8 @@ const Cart = () => {
           </div>
         </div>
       </div>
+    </div>
+    <Footer></Footer>
     </div>
   );
 };

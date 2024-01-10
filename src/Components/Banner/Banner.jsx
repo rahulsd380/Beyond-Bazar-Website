@@ -42,11 +42,11 @@ const Banner = () => {
         <div className='col-span-3 w-full'>
         <div className='hidden md:flex justify-between items-center mb-5 border-b pb-3'>
            <div className='flex gap-16 items-center'>
-           <Link className='font-semibold flex items-center gap-4 hover:text-rose-600 transition duration-300'>Home</Link>
-            <Link className='font-semibold flex items-center gap-4 hover:text-rose-600 transition duration-300'>Categories</Link>
-            <Link className='font-semibold flex items-center gap-4 hover:text-rose-600 transition duration-300'>Blog</Link>
-            <Link className='font-semibold flex items-center gap-4 hover:text-rose-600 transition duration-300'>Top Offer</Link>
-            <Link className='font-semibold flex items-center gap-4 hover:text-rose-600 transition duration-300'>Contact</Link>
+           <Link className='font-semibold text-gray-500 flex items-center gap-4 hover:text-rose-600 transition duration-300'>Home</Link>
+            <Link className='font-semibold text-gray-500 flex items-center gap-4 hover:text-rose-600 transition duration-300'>Categories</Link>
+            <Link className='font-semibold text-gray-500 flex items-center gap-4 hover:text-rose-600 transition duration-300'>Blog</Link>
+            <Link className='font-semibold text-gray-500 flex items-center gap-4 hover:text-rose-600 transition duration-300'>Top Offer</Link>
+            <Link className='font-semibold text-gray-500 flex items-center gap-4 hover:text-rose-600 transition duration-300'>Contact</Link>
            </div>
 
             <Link className='font-semibold flex items-center gap-2 text-rose-600 transition duration-300  '><IoMdHelpCircleOutline></IoMdHelpCircleOutline> Help Center</Link> 

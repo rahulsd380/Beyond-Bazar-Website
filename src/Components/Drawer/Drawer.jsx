@@ -1,4 +1,4 @@
-import { FaAlignJustify } from "react-icons/fa6";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const Drawer = () => {
   return (
@@ -8,10 +8,10 @@ const Drawer = () => {
         <div className="drawer-content">
           {/* Page content here */}
           <label htmlFor="my-drawer" className=" drawer-button">
-            <FaAlignJustify className="point text-2xl font-bold text-rose-600 hover:text-rose-500 transition duration-300 dark:text-rose-400 dark:hover:text-rose-600 dark:cursor-pointer"></FaAlignJustify>
+            <RxHamburgerMenu className="point text-2xl font-bold text-rose-600 hover:text-rose-500 transition duration-300 dark:text-rose-400 dark:hover:text-rose-600 cursor-pointer"></RxHamburgerMenu>
           </label>
         </div>
-        <div className="drawer-side">
+        <div className="drawer-side z-10">
           <label
             htmlFor="my-drawer"
             aria-label="close sidebar"

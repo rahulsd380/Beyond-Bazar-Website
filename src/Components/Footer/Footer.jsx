@@ -97,7 +97,7 @@ const Footer = () => {
       <br />
       <hr />
       <br />
-      <p className="text-gray-400 text-sm text-center font-semibold">Powered By <span className="text-rose-500">Rahul Sutradhar</span> Skill Dynamo ltd © 2023</p>
+      <p className="text-gray-400 text-sm text-center font-semibold">Powered By <span className="text-rose-500">Rahul Sutradhar</span> Beyond Bazar ltd © 2024</p>
       <br />
       {/* <img src="/src/assets/images/1.png" alt="" /> */}
     </div>
