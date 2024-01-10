@@ -54,6 +54,9 @@ const Navbar = () => {
     }
   }, [transcript]);
 
+  // Total price of cart items
+  const totalPrice = cart.reduce((total, item) => total + item.price, 0)
+
 
 
   return (
@@ -219,8 +222,8 @@ const Navbar = () => {
             </Link>
 
             <div className="-mt-6">
-              <p className="text-gray-500 dark:text-gray-200">0 Items</p>
-              <p className="font-bold dark:text-gray-50">$66.00</p>
+              <p className="text-gray-500 dark:text-gray-200">{cart.length} Items</p>
+              <p className="font-bold dark:text-gray-50">${totalPrice}</p>
             </div>
           </div>
         </div>

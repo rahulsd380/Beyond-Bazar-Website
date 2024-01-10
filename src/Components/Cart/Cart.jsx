@@ -32,6 +32,10 @@ const Cart = () => {
   };
 
 
+    // Total price of cart items
+    const totalPrice = cart.reduce((total, item) => total + item.price, 0)
+
+
   return (
     <div>
       <div className="max-w-7xl mx-auto">
@@ -148,24 +152,24 @@ const Cart = () => {
 
           <div className="flex items-center justify-between mb-2">
             <p className="text-gray-500 font-semibold">Subtotal</p>
-            <p className="text-gray-500">$299</p>
+            <p className="text-gray-500">${totalPrice}</p>
           </div>
 
           <div className="flex items-center justify-between mb-2">
             <p className="text-gray-500 font-semibold">Discount</p>
-            <p className="text-gray-500">- $299</p>
+            <p className="text-gray-500">- $00</p>
           </div>
 
           <div className="flex items-center justify-between mb-2">
             <p className="text-gray-500 font-semibold">Shipping</p>
-            <p className="text-gray-500">$5</p>
+            <p className="text-gray-500">$00</p>
           </div>
 
           <hr />
 
           <div className="flex items-center justify-between bg-rose-600 p-2 rounded-md text-white mb-2">
             <p className="font-semibold">Total</p>
-            <p className="">$300</p>
+            <p className="">${totalPrice}</p>
           </div>
         </div>
       </div>
