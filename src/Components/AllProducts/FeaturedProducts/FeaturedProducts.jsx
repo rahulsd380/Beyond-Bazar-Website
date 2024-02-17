@@ -1,9 +1,9 @@
 import { FaHeart, FaStar, FaUser } from "react-icons/fa";
 import { MdOutlineDateRange } from "react-icons/md";
-import { FaAnglesRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 
 const FeaturedProducts = () => {
@@ -43,12 +43,9 @@ const FeaturedProducts = () => {
                 <h1 className="text-gray-500 text-3xl font-bold">View Our Featured Products</h1>
             </div>
 
-            <div className="flex items-center">
-            <input type="text" placeholder="Find Anything..." className="px-2 h-10 rounded-l-md border-y border-l border-gray-400" />
-            <div className="border border-gray-400 px-2 h-10 rounded-r-md flex justify-center items-center">
-            <FaAnglesRight className="text-rose-600 text-3xl"></FaAnglesRight>
-            </div>
-            </div>
+            <div className="flex justify-center items-center">
+                    <Link to={"/allProducts"} className="text-gray-500 font-semibold text-center flex items-center gap-1">View All Product <FaArrowRightLong></FaArrowRightLong></Link>
+                </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
                 {
@@ -58,29 +55,29 @@ const FeaturedProducts = () => {
                     <img className="w-48 h-44" src={product.image} alt="" />
 
                     <div className="bg-[#e4e4e6] p-1 absolute top-0 left-0 rounded-br-md">
-                        <p>{product.price}</p>
+                        <p>${product.price}</p>
 
                     </div>
                 </div>
-                <h1 className="text-2xl font-bold mb-1 text-[#535455]">{product.title}</h1>
+                <h1 className="text-xl font-bold mb-1 text-[#535455]">{product.title}</h1>
 
                 <div className="flex justify-between items-center mb-1">
                     <p className="flex items-center gap-2 text-sm text-[#6D6E70]"><FaUser></FaUser> {product.sellerName}</p>
-                    <p className="flex items-center gap-2 text-sm text-[#6D6E70]"><MdOutlineDateRange></MdOutlineDateRange> {product.date}</p>
+                    <p className="text-sm flex items-center gap-2 text-[#6D6E70]"><MdOutlineDateRange></MdOutlineDateRange> {product.date}</p>
                     <button onClick={() => toggleButton(product._id)}>
                     {isNotWishlist ? <FaHeart className="text-xl text-[#6D6E70]"></FaHeart> : <FaHeart className="text-xl text-rose-600"></FaHeart>}
                     </button>
                 </div>
 
                    <div className="flex justify-between items-center">
-                   <p className="flex gap-3 text-base items-center text-yellow-500"><FaStar></FaStar><FaStar></FaStar><FaStar></FaStar><FaStar></FaStar><FaStar></FaStar> <span>({product.reviews})</span></p>
+                   <p className="flex gap-3 text-sm items-center text-yellow-500"><FaStar></FaStar><FaStar></FaStar><FaStar></FaStar><FaStar></FaStar><FaStar></FaStar> <span>({product.reviews})</span></p>
                    <div className="flex items-center gap-3">
                         {/* <p className="text-xs font-semibold text-rose-600 px-2 py-1 rounded-md bg-[#F6F7F7] border border-[#E6E7E8]">$299</p> */}
                         <p className="text-xs text-green-600 p-1 rounded-md bg-[#F6F7F7] border border-[#E6E7E8]">{product.status}</p>
                    </div>
                    </div>
 
-                   <p className="mb-2 text-[#6D6E70]">{product.description}</p>
+                   <p className="mb-2 text-[#6D6E70] text-sm">{product.description}</p>
                    <div className="flex gap-5">
                   <Link to={`/productDetails/${product._id}`} className="text-gray-500 font-semibold px-4 py-2 bg-[#F6F7F7] border border-[#d3d3d4] hover:bg-gradient-to-r from-red-500 to-red-800 hover:text-white transition duration-300 rounded-md w-full text-center">View Details</Link>
                    <button className="text-gray-200 font-semibold px-4 py-2 bg-gradient-to-r from-red-500 to-red-800 rounded-md w-full text-center">Add To Cart</button>
@@ -90,10 +87,6 @@ const FeaturedProducts = () => {
                 }
 
             </div>
-            
-            <div className="flex justify-center items-center py-5">
-                    <Link to={"/allProducts"} className="text-gray-200 w-40 font-semibold px-4 py-2 bg-gradient-to-r from-red-500 to-red-800 rounded-md text-center">View All Product</Link>
-                </div>
                 <Toaster position="top-center" reverseOrder={false} />
         </div>
     );

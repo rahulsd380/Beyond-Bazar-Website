@@ -131,6 +131,7 @@ const ProductDetails = () => {
             </div>
             <p className="text-xl font-semibold">{sellerName}</p>
           </div>
+            <p>{date}</p>
 
           {/* Description */}
           <p className="mb-3">{description}</p>

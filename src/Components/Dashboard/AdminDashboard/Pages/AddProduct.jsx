@@ -28,11 +28,11 @@ const AddProduct = () => {
                 {/* Text Information Section */}
                 <div className="">
                     
-                        <input name="productTitle" type="text" placeholder="Product Title" className="input input-bordered w-full mb-7" />
+                        <input name="productTitle" type="text" placeholder="Product Title" className="rounded-md border border-rose-300  bg-white h-11 px-3 text-sm focus:outline-none focus:border-rose-600 transition duration-300 ease-in-out w-full hover:border-rose-300 mb-5" />
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-7">
-                        <input name="productPrice" type="text" placeholder="Product Price" className="input input-bordered w-full" />
-                        <select  name="productCategory" className="select select-bordered w-full text-gray-400">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                        <input name="productPrice" type="text" placeholder="Product Price" className="rounded-md border border-rose-300  bg-white h-12 px-3 text-sm focus:outline-none focus:border-rose-600 transition duration-300 ease-in-out w-full hover:border-rose-300" />
+                        <select name="productCategory" className="rounded-md border border-rose-300  bg-white p-3 text-sm focus:outline-none focus:border-rose-600 transition duration-300 ease-in-out w-full hover:border-rose-300">
                             <option disabled selected>Select Cetegory</option>
                             <option value="featured">Featured</option>
                             <option value="cloths">Cloths</option>
@@ -41,7 +41,8 @@ const AddProduct = () => {
                         </select>
                     </div>
 
-                    <textarea name="productDescription" rows={"5"} className="textarea textarea-bordered w-full mb-5" placeholder="Product Description"></textarea>
+                    <textarea className="rounded-md border border-rose-300  bg-white p-3 text-sm focus:outline-none focus:border-rose-600 transition duration-300 ease-in-out w-full hover:border-rose-300" name="productDescription" id="" cols="30" rows="10"></textarea>
+
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <Link to={"/"}>

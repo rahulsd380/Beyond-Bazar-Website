@@ -1,34 +1,43 @@
 import toast from "react-hot-toast";
+import { useForm } from "react-hook-form";
+import useAxiosPublic from "./../../../Hooks/useAxiosPublic";
+
+const imgApiKey = "763882e480dd8ab664d9058115562cab";
+const imgHostingApi = `https://api.imgbb.com/1/upload?key=${imgApiKey}`;
 
 const UpdateHero = () => {
-  const handleAddBanner = (e) => {
-    e.preventDefault();
-    const image = e.target.image.value;
+  const axiosPublic = useAxiosPublic();
 
-    const allData = { image };
-    console.log(allData);
+  // hook form
+  const { register, handleSubmit, reset } = useForm();
 
-    const toastId = toast.loading("Adding...");
-    fetch("http://localhost:5000/heroSection", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(allData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
-          toast.success("Added Successfully.", { id: toastId });
-        }
-      });
+  const onSubmit = async (data) => {
+    console.log(data);
+    const imageFile = { image : data.image[0]}
+    const res = await axiosPublic.post(imgHostingApi, imageFile, {
+      headers : {
+        'content-type' : 'multipart/form-data'
+      }
+    });
+    if(res.data.success){
+      const info = {
+        image: res.data.data.display_url
+      }
+      console.log(info);
+      const imgRes = await axiosPublic.post('/heroSection', info);
+      console.log(imgRes.data);
+      if(imgRes.data.insertedId){
+        reset();
+      }
+    }
+    console.log(res.data);
   };
 
   return (
     <div>
       <div>
-        <div className="px-3 pb-7 flex justify-center">
+          <p className="text-red-300 pb-3">Note: The file dimensions must be 1500px * 700px</p>
+        <div className="pb-7 flex justify-center">
           {/* Open the modal using document.getElementById('ID').showModal() method */}
           <button
             className="text-gray-200 font-semibold px-4 py-2 bg-gradient-to-r from-red-500 to-red-800 rounded-md w-full text-center"
@@ -41,26 +50,38 @@ const UpdateHero = () => {
               <h3 className="font-bold text-lg text-gray-600 mb-6">
                 Add A New Banner
               </h3>
-              <form onSubmit={handleAddBanner}>
-                <div className="grid grid-cols-1 gap-5">
-                  
-                  
-                  
-                  <div className="relative h-11 w-full">
-                    <input
-                      required
-                      type="text"
-                      className="bg-gray-300 peer h-full w-full rounded-md bg-transparent px-3 py-3 font-sans text-sm font-normal outline outline-0 focus:border-2 focus:border-rose-600 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 text-gray-600"
-                      placeholder=" "
-                      name="image"
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <label
+                  htmlFor="uploadFile1"
+                  className="bg-white text-black text-base rounded w-80 h-52 flex flex-col items-center justify-center cursor-pointer border-2 border-gray-300 border-dashed mx-auto font-[sans-serif]"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-8 mb-2 fill-black"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M23.75 11.044a7.99 7.99 0 0 0-15.5-.009A8 8 0 0 0 9 27h3a1 1 0 0 0 0-2H9a6 6 0 0 1-.035-12 1.038 1.038 0 0 0 1.1-.854 5.991 5.991 0 0 1 11.862 0A1.08 1.08 0 0 0 23 13a6 6 0 0 1 0 12h-3a1 1 0 0 0 0 2h3a8 8 0 0 0 .75-15.956z"
+                      data-original="#000000"
                     />
-                    <label className="text-gray-400 before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-rose-600 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-rose-600 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-rose-600 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-rose-600 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                      Image URL
-                    </label>
-                  </div>
-                </div>
+                    <path
+                      d="M20.293 19.707a1 1 0 0 0 1.414-1.414l-5-5a1 1 0 0 0-1.414 0l-5 5a1 1 0 0 0 1.414 1.414L15 16.414V29a1 1 0 0 0 2 0V16.414z"
+                      data-original="#000000"
+                    />
+                  </svg>
+                  Upload file
+                  <input
+                    {...register("image")}
+                    type="file"
+                    id="uploadFile1"
+                    className="hidden"
+                  />
+                  <p className="text-xs text-gray-400 mt-2">
+                    PNG, JPG SVG, WEBP, and GIF are Allowed.
+                  </p>
+                </label>
+                <div className="grid grid-cols-1 gap-5"></div>
 
-                
                 <div className="flex flex-row-reverse items-center gap-9">
                   <button className="text-gray-200 font-semibold px-4 py-2 bg-gradient-to-r from-red-500 to-red-800 rounded-md w-full text-center mt-5">
                     Save Changes

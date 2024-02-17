@@ -121,9 +121,9 @@ const Cart = () => {
                       </div>
                     </div>
                   </td>
-                  <td>{item.price}</td>
+                  <td>${item.price}</td>
                   <th>
-                    <button className="btn btn-ghost flex items-center gap-3">
+                    <button className="flex items-center gap-3">
                       Delete{" "}
                       <FaDeleteLeft className="text-rose-600 text-xl"></FaDeleteLeft>
                     </button>

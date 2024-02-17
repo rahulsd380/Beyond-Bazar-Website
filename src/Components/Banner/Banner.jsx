@@ -7,17 +7,26 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { GiClothes } from "react-icons/gi";
 import { MdOutlineArrowDropDownCircle } from "react-icons/md";
+import { LuSofa } from "react-icons/lu";
+import { FaRegClipboard } from "react-icons/fa6";
 
 // import required modules
 import { EffectFade, Navigation, Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
 import useHero from "./../Hooks/useHero";
+import { AiOutlineLaptop } from "react-icons/ai";
+import { GiBookshelf } from "react-icons/gi";
+import { MdOutlineSportsGolf } from "react-icons/md";
+import { MdOutlineToys } from "react-icons/md";
+import { FaCarAlt } from "react-icons/fa";
+import { SiMaterialdesignicons } from "react-icons/si";
+import { HiMiniBuildingOffice2 } from "react-icons/hi2";
 
 const Banner = () => {
   const [heroSection] = useHero();
 
   return (
-    <div className="max-w-7xl mx-auto py-10">
+    <div className="max-w-7xl mx-auto pt-6 pb-10">
       <div className="grid grid-cols-4 gap-10">
         <div className="hidden md:block">
           <div className="bg-rose-600 p-3 rounded-t-2xl">
@@ -26,15 +35,48 @@ const Banner = () => {
               <MdOutlineArrowDropDownCircle className="text-xl font-bold"></MdOutlineArrowDropDownCircle>
             </p>
           </div>
-          <div className="bg-gray-50 px-7 py-4 flex flex-col gap-6 h-screen rounded-b-xl shadow-md">
-            <Link className="flex items-center gap-4 hover:text-rose-600 transition duration-300">
-              <GiClothes></GiClothes> Home
+          <div className="bg-gray-50 px-7 py-4 flex flex-col gap-4 h-auto rounded-b-xl shadow-md">
+            
+            <Link to={"/"} className="flex items-center gap-4 hover:text-rose-600 transition duration-300 font-semibold text-gray-500">
+            <AiOutlineLaptop></AiOutlineLaptop> Electronics
             </Link>
-            <Link>Home</Link>
-            <Link>Home</Link>
-            <Link>Home</Link>
-            <Link>Home</Link>
-            <Link>Home</Link>
+
+            <Link to={"/"} className="flex items-center gap-4 hover:text-rose-600 transition duration-300 font-semibold text-gray-500">
+              <GiClothes></GiClothes> Fashion
+            </Link>
+
+            <Link to={"/"} className="flex items-center gap-4 hover:text-rose-600 transition duration-300 font-semibold text-gray-500">
+            <LuSofa></LuSofa> Home & Furniture
+            </Link>
+
+
+            <Link to={"/"} className="flex items-center gap-4 hover:text-rose-600 transition duration-300 font-semibold text-gray-500">
+            <FaRegClipboard></FaRegClipboard> Beauty & Personal Care
+            </Link>
+
+            <Link to={"/"} className="flex items-center gap-4 hover:text-rose-600 transition duration-300 font-semibold text-gray-500">
+            <GiBookshelf></GiBookshelf> Books, Movies & Music
+            </Link>
+
+            <Link to={"/"} className="flex items-center gap-4 hover:text-rose-600 transition duration-300 font-semibold text-gray-500">
+            <MdOutlineSportsGolf></MdOutlineSportsGolf> Sports & Outdoors
+            </Link>
+
+            <Link to={"/"} className="flex items-center gap-4 hover:text-rose-600 transition duration-300 font-semibold text-gray-500">
+            <MdOutlineToys></MdOutlineToys> Toys & Games
+            </Link>
+
+            <Link to={"/"} className="flex items-center gap-4 hover:text-rose-600 transition duration-300 font-semibold text-gray-500">
+            <FaCarAlt></FaCarAlt> Automotive
+            </Link>
+
+            <Link to={"/"} className="flex items-center gap-4 hover:text-rose-600 transition duration-300 font-semibold text-gray-500">
+            <SiMaterialdesignicons></SiMaterialdesignicons> Home Improvement
+            </Link>
+
+            <Link to={"/"} className="flex items-center gap-4 hover:text-rose-600 transition duration-300 font-semibold text-gray-500 mb-8">
+            <HiMiniBuildingOffice2></HiMiniBuildingOffice2> Office Supplies
+            </Link>
           </div>
         </div>
 

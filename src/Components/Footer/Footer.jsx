@@ -14,6 +14,7 @@ import {
 import { BiLogoPlayStore } from "react-icons/bi";
 import { AiFillApple } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import Button from '../AnimatedComponents/Button/Button';
 
 const Footer = () => {
   return (
@@ -74,9 +75,10 @@ const Footer = () => {
               name="password"
               placeholder="Enter your email"
             />
-            <button className="bg-gradient-to-r from-red-500 to-red-800 font-semibold p-2 rounded-md text-white w-full mb-3">
+            <Button></Button>
+            {/* <button className="bg-gradient-to-r from-red-500 to-red-800 font-semibold p-2 rounded-md text-white w-full mb-3">
               SUBSCRIBE
-            </button>
+            </button> */}
           </nav>
         </footer>
         <hr />

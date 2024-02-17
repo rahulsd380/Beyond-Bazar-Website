@@ -80,18 +80,18 @@ const AllProducts = () => {
 
 
       {/* All product card */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-5 pb-10">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-5 pb-10">
         {allProducts.map((product) => (
           <div key={product._id}>
             <div className="bg-[#F1F1F2] p-3 rounded-md">
-              <div className="bg-[#F6F7F7] rounded-md border border-[#E6E7E8] p-2 flex justify-center items-center mb-4 transform hover:scale-105 duration-500 ease-in-out relative">
+              <div className="bg-[#F7F9F9] rounded-md border border-[#E6E7E8] p-2 flex justify-center items-center mb-4 transform hover:scale-105 duration-500 ease-in-out relative">
                 <img className="w-48 h-44" src={product.image} alt="" />
 
                 <div className="bg-[#e4e4e6] p-1 absolute top-0 left-0 rounded-br-md">
-                  <p>{product.price}</p>
+                  <p>${product.price}</p>
                 </div>
               </div>
-              <h1 className="text-2xl font-bold mb-1 text-[#535455]">
+              <h1 className="text-xl font-bold mb-1 text-[#818181]">
                 {product.title}
               </h1>
 
@@ -99,14 +99,14 @@ const AllProducts = () => {
                 <p className="flex items-center gap-2 text-sm text-[#6D6E70]">
                   <FaUser></FaUser> {product.sellerName}
                 </p>
-                <p className="flex items-center gap-2 text-sm text-[#6D6E70]">
+                {/* <p className="flex items-center gap-2 text-sm text-[#6D6E70]">
                   <MdOutlineDateRange></MdOutlineDateRange> {product.date}
-                </p>
+                </p> */}
                 <FaHeart className="text-xl text-[#6D6E70]"></FaHeart>
               </div>
 
               <div className="flex justify-between items-center">
-                <p className="flex gap-3 text-base items-center text-yellow-500">
+                <p className="flex gap-1 text-base items-center text-yellow-500">
                   <FaStar></FaStar>
                   <FaStar></FaStar>
                   <FaStar></FaStar>
@@ -120,16 +120,14 @@ const AllProducts = () => {
                   </p>
                 </div>
               </div>
-
-              <p className="mb-2 text-[#6D6E70]">{product.description}</p>
-              <div className="flex gap-5">
+              <div className="flex gap-5 mt-3">
                 <Link
                   to={`/productDetails/${product._id}`}
-                  className="text-gray-500 font-semibold px-4 py-2 bg-[#F6F7F7] border border-[#d3d3d4] hover:bg-gradient-to-r from-red-500 to-red-800 hover:text-white transition duration-300 rounded-md w-full text-center"
+                  className="text-gray-500 font-semibold text-sm px-2 py-2 bg-[#F6F7F7] border border-[#d3d3d4] hover:bg-gradient-to-r from-red-500 to-red-800 hover:text-white transition duration-300 rounded-md text-center w-full"
                 >
                   View Details
                 </Link>
-                <button className="text-gray-200 font-semibold px-4 py-2 bg-gradient-to-r from-red-500 to-red-800 rounded-md w-full text-center">
+                <button className="text-gray-200 font-semibold text-sm px-2 py-2 bg-gradient-to-r from-red-500 to-red-800 rounded-md text-center w-full">
                   Add To Cart
                 </button>
               </div>
