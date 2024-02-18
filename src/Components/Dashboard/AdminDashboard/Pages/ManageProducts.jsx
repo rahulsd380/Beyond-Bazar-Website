@@ -4,6 +4,14 @@ import { MdOutlineDateRange } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 import useAllProducts from "../../../Hooks/useAllProducts";
 import { IoIosArrowDown } from "react-icons/io";
+import { RiDeleteBinLine } from "react-icons/ri";
+import { MdOutlineTextSnippet } from "react-icons/md";
+import { MdPriceCheck } from "react-icons/md";
+import { MdOutlineCategory } from "react-icons/md";
+import { GrStatusUnknown } from "react-icons/gr";
+import { FaStarHalfAlt } from "react-icons/fa";
+import { MdLineWeight } from "react-icons/md";
+
 
 const ManageProducts = () => {
     const [allProducts] = useAllProducts();
@@ -12,11 +20,11 @@ const ManageProducts = () => {
       <Header></Header>
       <div>
         <div className="flex gap-10 mb-7">
-            <button className="bg-[#F6F7F7] rounded-md border border-[#E6E7E8] p-2 text-[#535455] font-semibold flex items-center gap-2">Newest <IoIosArrowDown></IoIosArrowDown></button>
-            <button className="bg-[#F6F7F7] rounded-md border border-[#E6E7E8] p-2 text-[#535455] font-semibold flex items-center gap-2">Oldest <IoIosArrowDown></IoIosArrowDown></button>
+            <button className="bg-[#F6F7F7] rounded-md border border-[#E6E7E8] px-3 py-1 text-[#535455] font-semibold flex items-center gap-2"><MdLineWeight></MdLineWeight> Newest</button>
+            <button className="bg-[#F6F7F7] rounded-md border border-[#E6E7E8] px-3 py-1 text-[#535455] font-semibold flex items-center gap-2"><MdLineWeight></MdLineWeight> Oldest</button>
 
             <details className="dropdown">
-  <summary className="m-1 p-2 cursor-pointer bg-[#F6F7F7] rounded-md border border-[#E6E7E8] flex items-center gap-2 text-[#535455] font-semibold">Price <IoIosArrowDown></IoIosArrowDown></summary>
+  <summary className="m-1 p-2 cursor-pointer bg-[#F6F7F7] rounded-md border border-[#E6E7E8] flex items-center gap-2 text-[#535455] font-semibold"><MdPriceCheck></MdPriceCheck> Price <IoIosArrowDown></IoIosArrowDown></summary>
   <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
     <li className="bg-gray-100 mb-2 rounded-md"><a>$ 0 - 25</a></li>
     <li className="bg-gray-100 mb-2 rounded-md"><a>$ 25 - 50</a></li>
@@ -30,7 +38,7 @@ const ManageProducts = () => {
 </details>
 
             <details className="dropdown">
-  <summary className="m-1 p-2 cursor-pointer bg-[#F6F7F7] rounded-md border border-[#E6E7E8] flex items-center gap-2 text-[#535455] font-semibold">Category <IoIosArrowDown></IoIosArrowDown></summary>
+  <summary className="m-1 p-2 cursor-pointer bg-[#F6F7F7] rounded-md border border-[#E6E7E8] flex items-center gap-2 text-[#535455] font-semibold"><MdOutlineCategory></MdOutlineCategory> Category <IoIosArrowDown></IoIosArrowDown></summary>
   <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
     <li><a>Item 1</a></li>
     <li><a>Item 2</a></li>
@@ -38,7 +46,7 @@ const ManageProducts = () => {
 </details>
 
             <details className="dropdown">
-  <summary className="m-1 p-2 cursor-pointer bg-[#F6F7F7] rounded-md border border-[#E6E7E8] flex items-center gap-2 text-[#535455] font-semibold">Status <IoIosArrowDown></IoIosArrowDown></summary>
+  <summary className="m-1 p-2 cursor-pointer bg-[#F6F7F7] rounded-md border border-[#E6E7E8] flex items-center gap-2 text-[#535455] font-semibold"><GrStatusUnknown></GrStatusUnknown> Status <IoIosArrowDown></IoIosArrowDown></summary>
   <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
     <li><a className="text-green-600">In Stock</a></li>
     <li><a className="text-rose-600">Stock out</a></li>
@@ -46,7 +54,7 @@ const ManageProducts = () => {
 </details>
 
             <details className="dropdown">
-  <summary className="m-1 p-2 cursor-pointer bg-[#F6F7F7] rounded-md border border-[#E6E7E8] flex items-center gap-2 text-[#535455] font-semibold">Rating <IoIosArrowDown></IoIosArrowDown></summary>
+  <summary className="m-1 p-2 cursor-pointer bg-[#F6F7F7] rounded-md border border-[#E6E7E8] flex items-center gap-2 text-[#535455] font-semibold"><FaStarHalfAlt></FaStarHalfAlt> Rating <IoIosArrowDown></IoIosArrowDown></summary>
   <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
     <li className="bg-gray-100 mb-2 rounded-md"><a>
         <p className="flex gap-3 text-base items-center text-yellow-500">
@@ -80,10 +88,10 @@ const ManageProducts = () => {
                 allProducts.map(product => <div key={product._id}>
 <div className="bg-[#F1F1F2] p-3 rounded-md flex items-center gap-5">
             <div className="bg-[#F6F7F7] rounded-md border border-[#E6E7E8] p-2 flex justify-center items-center mb-4 transform hover:scale-105 duration-500 ease-in-out relative">
-              <img className="w-80 h-40" src={product.image} alt="" />
+              <img className="w-80 h-[178px]" src={product.image} alt="" />
 
               <div className="bg-[#e4e4e6] p-1 absolute top-0 left-0 rounded-br-md">
-                <p>{product.price}</p>
+                <p>${product.price}</p>
               </div>
             </div>
             <div>
@@ -94,8 +102,8 @@ const ManageProducts = () => {
                 <div className="dropdown dropdown-end">
   <div tabIndex={0} role="button" className=""><RxHamburgerMenu className="text-xl"></RxHamburgerMenu></div>
   <ul tabIndex={0} className="dropdown-content z-[1] menu shadow bg-base-100 rounded-box w-52">
-    <li className="bg-gray-100 text-rose-600 mb-2 rounded-md"><a>Remove</a></li>
-    <li className="bg-gray-100 rounded-md"><a>Send Notice</a></li>
+    <button className="bg-gray-100 text-rose-600 mb-2 p-2 rounded-md flex items-center gap-2"><RiDeleteBinLine></RiDeleteBinLine><p>Remove</p></button>
+    <button className="bg-gray-100 text-yellow-600 mb-2 p-2 rounded-md flex items-center gap-2"><MdOutlineTextSnippet></MdOutlineTextSnippet><p>Send Notice</p></button>
   </ul>
 </div>
 

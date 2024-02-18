@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Header from "./Header";
+import { IoBagAddOutline } from "react-icons/io5";
 
 
 const AddProduct = () => {
@@ -17,7 +18,10 @@ const AddProduct = () => {
         <div>
             <Header></Header>
             <div>
-                <h1 className="text-4xl font-bold mb-7">Add A New Product</h1>
+                <div className="flex items-center gap-2 mb-7 text-gray-500">
+                <IoBagAddOutline className="text-4xl"></IoBagAddOutline>
+                <h1 className="text-3xl font-bold">Add A New Product</h1>
+                </div>
                 <form onSubmit={handleAddNewproduct}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center border bg-gray-50 p-3 rounded-lg">
                     {/* Image input section */}
