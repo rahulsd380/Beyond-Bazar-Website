@@ -7,6 +7,8 @@ import { IoSearchOutline, IoTimerOutline } from "react-icons/io5";
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 import { BiMicrophoneOff } from 'react-icons/bi';
 import { HiOutlineMicrophone } from 'react-icons/hi';
+import Lottie from 'lottie-react';
+import admin from "../../../../../public/admin.json"
 
 const Header = () => {
   const {user} = useContext(AuthContext);
@@ -114,15 +116,15 @@ const Header = () => {
 
   </div>
 
-  <div className="bg-gray-50 p-3 rounded-2xl">
+  <div className="bg-gray-50 p-3 rounded-2xl flex justify-between">
         <div className="max-w-2xl">
         <h1 className="text-gray-500 text-2xl font-bold mb-1"><span span className="text-rose-600">{getGreeting()},</span> {user ? user.displayName : "User"}</h1>
         <p className="text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et pariatur minus est incidunt accusamus, earum placeat explicabo natus similique impedit.</p>
         <p className="flex items-center gap-3 mt-1"><IoTimerOutline className="text-rose-600"></IoTimerOutline> {formattedTime}</p>
         </div>
 
-        <div className="w-72">
-            <Lottie animationData={task} loop={true} />
+        <div className="w-32">
+            <Lottie animationData={admin} loop={true} />
             </div>
   </div>
             </div>
