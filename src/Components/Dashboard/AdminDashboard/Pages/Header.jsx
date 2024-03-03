@@ -120,6 +120,10 @@ const Header = () => {
         <p className="text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et pariatur minus est incidunt accusamus, earum placeat explicabo natus similique impedit.</p>
         <p className="flex items-center gap-3 mt-1"><IoTimerOutline className="text-rose-600"></IoTimerOutline> {formattedTime}</p>
         </div>
+
+        <div className="w-72">
+            <Lottie animationData={task} loop={true} />
+            </div>
   </div>
             </div>
         </div>

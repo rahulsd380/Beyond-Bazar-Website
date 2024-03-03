@@ -1,4 +1,3 @@
-import './Footer.css'
 import {
   FaFacebookF,
   FaTwitter,
@@ -15,17 +14,11 @@ import { BiLogoPlayStore } from "react-icons/bi";
 import { AiFillApple } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Button from '../AnimatedComponents/Button/Button';
+import footerLogo from "../../../public/footer-logo.png"
 
 const Footer = () => {
   return (
     <div>
-      <div className=''>
-      <div className="bg px-8 py-5 flex justify-between items-center rounded-t-full">
-        <h1 className="font-semibold text-3xl text-white">Let's Get Started Today And Find Whatever You Want.</h1>
-        <Link className="text-gray-600 w-60 font-semibold px-2 py-2 rounded-md text-center bg-gradient-to-r from-rose-100 to-teal-100">Get Started</Link>
-      </div>
-      </div>
-
       <div className="relative">
       <img
         src="../../../public/bg.jpg"
@@ -36,7 +29,7 @@ const Footer = () => {
       <div className="relative z-10">
         <footer className="footer p-10 text-base-content">
           <aside>
-            <img className="w-28" src="/src/assets/images/logo.png" alt="" />
+            <img className="w-28" src={footerLogo} alt="" />
             <p className="text-white font-semibold">
               <span className="bg-gradient-to-r from-red-500 to-red-800 bg-clip-text text-transparent font-bold text-4xl ">
                 Beyond Bazar

@@ -6,10 +6,10 @@ import { IoArrowUndoSharp } from "react-icons/io5";
 import Navbar from "../Navbar/Navbar";
 import { Helmet } from "react-helmet-async";
 import Footer from "../Footer/Footer";
+import { IoCaretForwardSharp } from "react-icons/io5";
 
 const Cart = () => {
   const [cart] = useCart();
-  console.log(cart);
 
   const [updatedCart, setUpdatedCart] = useState([]);
   useEffect(() => {
@@ -167,9 +167,14 @@ const Cart = () => {
 
           <hr />
 
-          <div className="flex items-center justify-between bg-rose-600 p-2 rounded-md text-white mb-2">
+          <div className="flex items-center justify-between border border-rose-600 text-gray-500 p-2 rounded-md mb-2">
             <p className="font-semibold">Total</p>
-            <p className="">${totalPrice}</p>
+            <p className="text-rose-600">${totalPrice}</p>
+          </div>
+
+          <div className="flex items-center gap-2 justify-center bg-rose-600 p-2 rounded-md text-white mb-2">
+            <p className="font-semibold">Pay Now</p>
+            <IoCaretForwardSharp></IoCaretForwardSharp>
           </div>
         </div>
       </div>

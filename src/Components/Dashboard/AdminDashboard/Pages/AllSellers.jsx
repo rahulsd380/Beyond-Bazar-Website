@@ -1,4 +1,4 @@
-import Header from "../Dashboard/AdminDashboard/Pages/Header";
+import Header from "./Header";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { BiMessageDetail } from "react-icons/bi";
 import { MdPhoneCallback } from "react-icons/md";

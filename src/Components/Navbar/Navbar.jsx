@@ -60,7 +60,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-screen-2xl mx-auto">
         {/* Top part */}
       <div className="hidden md:flex md:justify-between items-center border-b py-3">
         <div className="flex gap-4">

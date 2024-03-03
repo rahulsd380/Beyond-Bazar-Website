@@ -21,8 +21,9 @@ const AdminDashboard = () => {
                     <Link to={"/dashboard/dashboardHome"} className='text-gray-300 font-semibold hover:text-rose-500 transition duration-300 flex items-center gap-3'><MdDashboard></MdDashboard> Dashboard</Link>
                     <NavLink to={"/dashboard/herosection"} className='text-gray-300 font-semibold hover:text-rose-500 transition duration-300 flex items-center gap-3'><TbNewSection></TbNewSection> Add Sections</NavLink>
                     <NavLink to={"/dashboard/addProduct"} className='text-gray-300 font-semibold hover:text-rose-500 transition duration-300 flex items-center gap-3'><IoBagAddOutline></IoBagAddOutline> Add Product</NavLink>
-                    <NavLink to={"/"} className='text-gray-300 font-semibold hover:text-rose-500 transition duration-300 flex items-center gap-3'><MdOutlineManageAccounts></MdOutlineManageAccounts> Manage Users</NavLink>
+                    <NavLink to={"/dashboard/allUser"} className='text-gray-300 font-semibold hover:text-rose-500 transition duration-300 flex items-center gap-3'><MdOutlineManageAccounts></MdOutlineManageAccounts> Manage Users</NavLink>
                     <NavLink to={"/dashboard/allSellers"} className='text-gray-300 font-semibold hover:text-rose-500 transition duration-300 flex items-center gap-3'><MdOutlineManageAccounts></MdOutlineManageAccounts> Manage Sellers</NavLink>
+                    <NavLink to={"/dashboard/manageShops"} className='text-gray-300 font-semibold hover:text-rose-500 transition duration-300 flex items-center gap-3'><MdOutlineManageAccounts></MdOutlineManageAccounts> Manage Shops</NavLink>
                     <NavLink to={"/dashboard/manageProducts"} className='text-gray-300 font-semibold hover:text-rose-500 transition duration-300 flex items-center gap-3'><MdOutlineManageHistory></MdOutlineManageHistory> Manage Products</NavLink>
                 </div>
 
