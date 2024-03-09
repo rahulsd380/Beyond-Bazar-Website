@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet-async";
 import Footer from "../Footer/Footer";
 
 const AllProducts = () => {
-  const [allProducts] = useAllProducts();
+  const [allProducts, isLoading, ] = useAllProducts();
   return (
     <div>
         <div className="max-w-7xl mx-auto">
@@ -85,7 +85,13 @@ const AllProducts = () => {
           <div key={product._id}>
             <div className="bg-[#F1F1F2] p-3 rounded-md">
               <div className="bg-[#F7F9F9] rounded-md border border-[#E6E7E8] p-2 flex justify-center items-center mb-4 transform hover:scale-105 duration-500 ease-in-out relative">
-                <img className="w-48 h-44" src={product.image} alt="" />
+                {
+                  isLoading ? <div className="skeleton w-32 h-32"></div>
+                  :
+                  <img className="w-48 h-44" src={product.image} alt="" />
+                }
+                  {/* <img className="w-48 h-44" src={product.image} alt="" /> */}
+                
 
                 <div className="bg-[#e4e4e6] p-1 absolute top-0 left-0 rounded-br-md">
                   <p>${product.price}</p>

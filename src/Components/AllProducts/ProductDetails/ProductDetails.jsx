@@ -9,6 +9,7 @@ import { Toaster, toast } from "sonner";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import { TbCurrencyTaka } from "react-icons/tb";
 
 const ProductDetails = () => {
   const { user } = useContext(AuthContext);
@@ -87,7 +88,6 @@ const ProductDetails = () => {
       })
       .catch((error) => {
         console.error("Error adding to wishlist:", error);
-        // Handle the error as needed, you might want to show an error toast here.
       });
   };
 
@@ -122,7 +122,19 @@ const ProductDetails = () => {
         {/* Product info (Right side) */}
         <div>
           <h1 className="text-3xl font-bold text-rose-600 mb-2">{title}</h1>
-          <p className="text-xl font-semibold mb-2">{price}</p>
+          <p>Special Price</p>
+
+          <div className="flex items-center gap-2">
+            <p className="text-xl font-semibold flex items-center">
+              <TbCurrencyTaka></TbCurrencyTaka> {price}
+            </p>
+
+            <p className="text-md font-semibold text-gray-400 line-through flex items-center">
+              <TbCurrencyTaka></TbCurrencyTaka> {300}
+            </p>
+
+            <p className="text-md font-semibold text-green-500">5% off</p>
+          </div>
 
           {/* Store info */}
           <div className="flex items-center gap-2 pb-4 border-b-2 border-gray-500 mb-2">
@@ -131,7 +143,7 @@ const ProductDetails = () => {
             </div>
             <p className="text-xl font-semibold">{sellerName}</p>
           </div>
-            <p>{date}</p>
+          <p>{date}</p>
 
           {/* Description */}
           <p className="mb-3">{description}</p>

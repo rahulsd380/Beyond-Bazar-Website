@@ -19,8 +19,8 @@ const AddProduct = () => {
             <Header></Header>
             <div>
                 <div className="flex items-center gap-2 mb-7 text-gray-500">
-                <IoBagAddOutline className="text-4xl"></IoBagAddOutline>
-                <h1 className="text-3xl font-bold">Add A New Product</h1>
+                <IoBagAddOutline className="text-3xl"></IoBagAddOutline>
+                <h1 className="text-2xl font-bold">Add A New Product</h1>
                 </div>
                 <form onSubmit={handleAddNewproduct}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center border bg-gray-50 p-3 rounded-lg">
@@ -45,7 +45,7 @@ const AddProduct = () => {
                         </select>
                     </div>
 
-                    <textarea className="rounded-md border border-rose-300  bg-white p-3 text-sm focus:outline-none focus:border-rose-600 transition duration-300 ease-in-out w-full hover:border-rose-300" name="productDescription" id="" cols="30" rows="10"></textarea>
+                    <textarea placeholder="Product Description" className="rounded-md border border-rose-300  bg-white p-3 text-sm focus:outline-none focus:border-rose-600 transition duration-300 ease-in-out w-full hover:border-rose-300" name="productDescription" id="" cols="30" rows="10"></textarea>
 
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">

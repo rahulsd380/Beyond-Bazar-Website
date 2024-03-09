@@ -14,6 +14,7 @@ import Wishlist from "../Wishlist/Wishlist";
 import { HiOutlineMicrophone } from "react-icons/hi";
 import { BiMicrophoneOff } from "react-icons/bi";
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
+// import './Navbar.css'
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -39,7 +40,7 @@ const Navbar = () => {
   const {
     transcript,
     listening,
-    resetTranscript,
+    // resetTranscript,
     browserSupportsSpeechRecognition
   } = useSpeechRecognition();
 
@@ -60,11 +61,12 @@ const Navbar = () => {
 
 
   return (
-    <div className="max-w-screen-2xl mx-auto">
+    <div className="max-w-custom px-5">
+      <div className='w-full'>
         {/* Top part */}
-      <div className="hidden md:flex md:justify-between items-center border-b py-3">
+      <div className="hidden md:flex md:justify-between items-center border-b py-3 w-full">
         <div className="flex gap-4">
-          <Link className="text-gray-500 hover:text-rose-600 transition duration-300 text-sm dark:text-gray-50 dark:hover:text-rose-400">
+          <Link className="text-gray-500 hover:text-rose-600 transition duration-300 text-sm dark:text-gray-50 dark:hover:text-rose-400 3xl:text-xl" >
             About Us
           </Link>
           <Link className="text-gray-500 hover:text-rose-600 transition duration-300 text-sm dark:text-gray-50 dark:hover:text-rose-400">
@@ -228,6 +230,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

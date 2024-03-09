@@ -21,7 +21,7 @@ const AllSellers = () => {
         
       <div className="border border-gray-300 bg-[#fbfbfc] rounded-lg relative">
 
-        <img src="/public/3.jpg" className="w-full h-[110px]" alt="" />
+        <img src="/public/3.jpg" className="rounded-t-lg w-full h-[110px]" alt="" />
 
 
 

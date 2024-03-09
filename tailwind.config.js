@@ -12,7 +12,14 @@ export default {
   presets: [keepPreset],
 
   theme: {
-    extend: {},
+    extend: {
+      maxWidth: {
+        'custom': '2500px',
+      },
+      screens:{
+        '3xl' : '1920px'
+      }
+    },
     fontFamily: {
       lato : ['Lato', 'sans-serif']
     },
