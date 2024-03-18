@@ -29,7 +29,7 @@ const FeaturedProducts = () => {
                 setAllProducts(data)
                 setIsLoading(false)
             })
-        }, 10000)
+        }, 2000)
     }, [url]);
 
     const featuredProduct = allProducts.filter(product => product.isFeatured === "true");
